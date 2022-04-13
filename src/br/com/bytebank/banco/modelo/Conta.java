@@ -1,13 +1,25 @@
 package br.com.bytebank.banco.modelo;
 
+/**
+ * Classe representa a moldura de uma conta no projeto ByteBank
+ * 
+ * @author Taiuã Nascimento
+ * @version 0.1
+ */
 
 public abstract class Conta {
 
-    protected double saldo;
+    protected double saldo; //o modificador de acesso torna o atributo visivel apenas para as classes filhas
     private int agencia;
     private int numero;
     private Cliente titular;
     
+    /**
+     * Construtor para inicializar o objeto Conta a partir da agencia e numero.
+     * 
+     * @param agencia
+     * @param numero
+     */
     public Conta(int agencia, int numero){
         if (agencia < 1) {
         	throw new IllegalArgumentException("Agencia inválida!");
@@ -23,6 +35,12 @@ public abstract class Conta {
 
     public abstract void deposita(double valor);
 
+    /**
+     * Valor precisa ser maior que o saldo.
+     * 
+     * @param valor
+     * @throws SaldoInsuficienteException
+     */
     public void saca(double valor) throws SaldoInsuficienteException {
         if(this.saldo < valor) {
         	throw new SaldoInsuficienteException("Saldo: " + this.saldo + " | Valor: " + valor);

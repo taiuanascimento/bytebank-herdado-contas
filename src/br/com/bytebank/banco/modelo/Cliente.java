@@ -1,5 +1,10 @@
 package br.com.bytebank.banco.modelo;
 
+/**
+ * 
+ * @author Taiuã Nascimento
+ * @version 0.1
+ */
 
 public class Cliente {
 
